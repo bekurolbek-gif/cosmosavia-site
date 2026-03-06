@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Cosmos Aviakassa Online | Ishonchli Aviachiptalar</title>
+  <meta name="description" content="Cosmos Aviakassa Online — 12 yillik ishonchli xizmat. Rossiya va O‘zbekiston yo‘nalishlarida qulay reyslar, foydali ma’lumotlar va tezkor aloqa." />
+  <meta name="keywords" content="Cosmos Aviakassa, aviachipta, aviakassa, Rossiya O‘zbekiston bilet, arzon bilet, online aviakassa" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#020617" />
+
+  <meta property="og:title" content="Cosmos Aviakassa Online" />
+  <meta property="og:description" content="12 yillik ishonchli xizmat. Qulay reyslar, foydali ma’lumotlar va tezkor aloqa." />
+  <meta property="og:image" content="logo.png" />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/png" href="logo.png" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S0EBY0B1EE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-S0EBY0B1EE');
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(59,130,246,0.20), transparent 25%),
+        radial-gradient(circle at top right, rgba(168,85,247,0.14), transparent 20%),
+        radial-gradient(circle at bottom center, rgba(239,68,68,0.08), transparent 25%),
+        linear-gradient(180deg, #020617 0%, #081122 40%, #0b1020 100%);
+      color: #f8fafc;
+      overflow-x: hidden;
+    }
+
+    .glass {
+      background: rgba(15, 23, 42, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      transition: 0.3s ease;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.10);
+    }
+
+    .input-style {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.92);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: white;
+      border-radius: 18px;
+      padding: 16px;
+      outline: none;
+      transition: 0.3s ease;
+    }
+
+    .input-style:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 4px rgba(59,130,246,0.12);
+    }
+
+    .toggle-btn {
+      cursor: pointer;
+      user-select: none;
+      background: rgba(15,23,42,0.85);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #94a3b8;
+      transition: 0.3s ease;
+    }
+
+    .toggle-btn.active {
+      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+      color: white;
+      font-weight: bold;
+      border-color: rgba(96,165,250,0.55);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-cosmos {
+      color: #3b82f6;
+    }
+
+    .brand-aviakassa {
+      color: #60a5fa;
+    }
+
+    .brand-online {
+      color: #ef4444;
+    }
+
+    .review-card,
+    .feature-card,
+    .contact-card,
+    .follow-card,
+    .route-card {
+      transition: 0.3s ease;
+    }
+
+    .review-card:hover,
+    .feature-card:hover,
+    .contact-card:hover,
+    .follow-card:hover,
+    .route-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(96,165,250,0.35);
+    }
+
+    .board {
+      background: linear-gradient(180deg, rgba(2,6,23,0.96), rgba(15,23,42,0.92));
+      border: 1px solid rgba(96,165,250,0.18);
+    }
+
+    .board-row {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr 1fr 1.4fr;
+      gap: 10px;
+      padding: 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      align-items: center;
+    }
+
+    .plane-box {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .plane-icon {
+      position: absolute;
+      right: 28px;
+      top: 22px;
+      font-size: 58px;
+      color: rgba(96,165,250,0.95);
+      animation: fly 6s ease-in-out infinite;
+    }
+
+    @keyframes fly {
+      0%,100% { transform: translateY(0) rotate(-8deg); }
+      50% { transform: translateY(-12px) rotate(-2deg); }
+    }
+
+    .floating-wa {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 58px;
+      height: 58px;
+      border-radius: 999px;
+      background: #22c55e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(34,197,94,0.35);
+      z-index: 100;
+    }
+
+    .toast {
+      position: fixed;
+      right: 18px;
+      bottom: 90px;
+      background: rgba(15,23,42,0.96);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 14px 16px;
+      display: none;
+      z-index: 100;
+      max-width: 340px;
+    }
+
+    @media (max-width: 900px) {
+      .board-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="toast" class="toast"></div>
+
+  <a href="https://wa.me/message/WVR2OAIUIT7CG1" target="_blank" class="floating-wa" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp text-white text-2xl"></i>
+  </a>
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-50 px-4 py-4">
+    <div class="max-w-7xl mx-auto glass rounded-2xl px-4 py-3 flex justify-between items-center">
+      <a href="#top" class="flex items-center gap-3">
+        <img src="logo.png" alt="Cosmos Aviakassa Logo" class="h-12 md:h-14">
+      </a>
+
+      <div class="hidden lg:flex items-center gap-6 text-xs font-bold uppercase tracking-widest text-slate-300">
+        <a href="#formSection" class="hover:text-blue-400">Buyurtma</a>
+        <a href="#contactPanel" class="hover:text-blue-400">Aloqa</a>
+        <a href="#bonus" class="hover:text-blue-400">Bonus</a>
+        <a href="#reviews" class="hover:text-blue-400">Izohlar</a>
+        <a href="#founder" class="hover:text-blue-400">Asoschi</a>
+      </div>
+
+      <div class="flex items-center gap-4 text-xl">
+        <a href="https://t.me/cosmosavia" target="_blank" class="text-sky-400" title="Telegram kanal">
+          <i class="fab fa-telegram-plane"></i>
+        </a>
+        <a href="https://t.me/cosmosavia1" target="_blank" class="text-blue-500" title="Telegram profil">
+          <i class="fas fa-user-circle"></i>
+        </a>
+        <a href="https://www.instagram.com/cosmosavia?igsh=MW9mbmFhdzV1NncyeQ==" target="_blank" class="text-pink-500" title="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://youtube.com/@cosmosavia?si=X178IS5Q1ss4oxSJ" target="_blank" class="text-red-500" title="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://wa.me/message/WVR2OAIUIT7CG1" target="_blank" class="text-green-500" title="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="top" class="px-4 pt-10 pb-16 md:pt-16 md:pb-24">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+      
+      <div>
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-5 text-sm font-bold">
+          <i class="fas fa-shield-alt text-blue-400"></i>
+          12 yillik ishonchli xizmat
+        </div>
+
+        <h1 class="section-title mb-5">
+          <span class="brand-cosmos">COSMOS</span><br>
+          <span class="brand-aviakassa">AVIAKASSA</span><br>
+          <span class="brand-online">ONLINE</span>
+        </h1>
+
+        <p class="text-slate-300 text-lg leading-relaxed mb-8 max-w-2xl">
+          Rossiya va O‘zbekiston yo‘nalishlarida qulay reyslar, foydali ma’lumotlar, bonus tizimi va tezkor aloqa bilan ishonchli aviakassa xizmati.
+        </p>
+
+        <div class="flex flex-wrap gap-3 mb-8">
+          <span class="glass px-4 py-2 rounded-full text-sm font-bold">Qulay yo‘nalishlar</span>
+          <span class="glass px-4 py-2 rounded-full text-sm font-bold">Bagaj bo‘yicha yordam</span>
+          <span class="glass px-4 py-2 rounded-full text-sm font-bold">Tez javob</span>
+        </div>
+
+        <div class="flex flex-wrap gap-4">
+          <a href="#formSection" class="btn-primary px-6 py-4 rounded-2xl font-bold uppercase tracking-wider text-sm">
+            So‘rov yuborish
+          </a>
+          <a href="#boardSection" class="btn-secondary px-6 py-4 rounded-2xl font-bold uppercase tracking-wider text-sm">
+            Foydali info
+          </a>
+        </div>
+      </div>
+
+      <div class="glass rounded-[32px] p-6 md:p-8 plane-box">
+        <i class="fas fa-plane plane-icon"></i>
+        <img src="logo.png" alt="Cosmos Aviakassa" class="w-64 md:w-80 mx-auto mb-8">
+        
+        <div class="grid md:grid-cols-3 gap-4">
+          <div class="glass rounded-2xl p-4">
+            <i class="fas fa-plane-departure text-blue-400 text-xl mb-3"></i>
+            <h3 class="font-bold mb-2">Qulay reyslar</h3>
+            <p class="text-sm text-slate-300">Mijozga qulay vaqt va yo‘nalishlarni topish.</p>
+          </div>
+          <div class="glass rounded-2xl p-4">
+            <i class="fas fa-suitcase text-yellow-400 text-xl mb-3"></i>
+            <h3 class="font-bold mb-2">Bagaj yordami</h3>
+            <p class="text-sm text-slate-300">Bagajli va bagsiz tarif farqini tushuntirish.</p>
+          </div>
+          <div class="glass rounded-2xl p-4">
+            <i class="fas fa-comments text-green-400 text-xl mb-3"></i>
+            <h3 class="font-bold mb-2">Tez aloqa</h3>
+            <p class="text-sm text-slate-300">WhatsApp va Telegram orqali tez bog‘lanish.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTACT + FOLLOW -->
+  <section id="contactPanel" class="px-4 py-12">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-6">
+
+      <div class="glass rounded-[32px] p-8">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl md:text-4xl font-black mb-3">Biz bilan bog‘lanish</h2>
+          <p class="text-slate-300">
+            Sizga qulay bo‘lgan aloqa usuli orqali yozishingiz mumkin
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+          <a href="https://t.me/cosmosavia1" target="_blank"
+          class="contact-card glass p-6 rounded-2xl flex flex-col items-center justify-center text-center">
+            <i class="fas fa-user text-3xl text-blue-400 mb-2"></i>
+            <span class="font-bold">Telegram profil</span>
+          </a>
+
+          <a href="https://wa.me/message/WVR2OAIUIT7CG1" target="_blank"
+          class="contact-card glass p-6 rounded-2xl flex flex-col items-center justify-center text-center">
+            <i class="fab fa-whatsapp text-3xl text-green-500 mb-2"></i>
+            <span class="font-bold">WhatsApp</span>
+          </a>
+
+          <a href="https://max.ru/u/f9LHodD0cOLiIcIohtRxuJeJtghmU-GRCxPjGdeLYqnTvk_LLnDciMS62TM" target="_blank"
+          class="contact-card glass p-6 rounded-2xl flex flex-col items-center justify-center text-center">
+            <img src="max.png" alt="MAX" style="width:32px;height:32px;margin-bottom:8px;">
+            <span class="font-bold">MAX</span>
+          </a>
+
+          <a href="tel:+79650222822"
+          class="contact-card glass p-6 rounded-2xl flex flex-col items-center justify-center text-center">
+            <i class="fas fa-phone text-3xl text-yellow-400 mb-2"></i>
+            <span class="font-bold">Qo‘ng‘iroq</span>
+          </a>
+
+        </div>
+      </div>
+
+      <div class="glass rounded-[32px] p-8">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl md:text-4xl font-black mb-3">Bizni kuzating</h2>
+          <p class="text-slate-300">
+            Yangiliklar, foydali videolar va takliflarni kuzatib boring
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+          <a href="https://t.me/cosmosavia" target="_blank"
+          class="follow-card glass p-6 rounded-2xl flex flex-col items-center justify-center text-center">
+            <i class="fab fa-telegram-plane text-3xl text-sky-400 mb-2"></i>
+            <span class="font-bold">Telegram kanal</span>
+          </a>
+
+          <a href="https://www.instagram.com/cosmosavia?igsh=MW9mbmFhdzV1NncyeQ==" target="_blank"
+          class="follow-card glass p-6 rounded-2xl flex flex-col items-center justify-center text-center">
+            <i class="fab fa-instagram text-3xl text-pink-500 mb-2"></i>
+            <span class="font-bold">Instagram</span>
+          </a>
+
+          <a href="https://youtube.com/@cosmosavia?si=X178IS5Q1ss4oxSJ" target="_blank"
+          class="follow-card glass p-6 rounded-2xl flex flex-col items-center justify-center text-center">
+            <i class="fab fa-youtube text-3xl text-red-500 mb-2"></i>
+            <span class="font-bold">YouTube</span>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section id="formSection" class="px-4 pb-16">
+    <div class="max-w-6xl mx-auto glass rounded-[32px] p-6 md:p-10">
+      <div class="text-center mb-8">
+        <h2 class="section-title mb-3">Tezkor buyurtma formasi</h2>
+        <p class="text-slate-300">Quyidagi ma’lumotlarni qoldiring. Sizga qulay variantlarni topib chiqamiz.</p>
+      </div>
+
+      <form id="leadForm" class="grid md:grid-cols-2 gap-5">
+        <div>
+          <label class="block text-xs uppercase tracking-widest text-slate-400 font-bold mb-2">Qayerdan</label>
+          <input id="from" type="text" class="input-style" placeholder="Masalan: Moskva" required>
+        </div>
+
+        <div>
+          <label class="block text-xs uppercase tracking-widest text-slate-400 font-bold mb-2">Qayerga</label>
+          <input id="to" type="text" class="input-style" placeholder="Masalan: Toshkent" required>
+        </div>
+
+        <div>
+          <label class="block text-xs uppercase tracking-widest text-slate-400 font-bold mb-2">Uchish sanasi</label>
+          <input id="date" type="date" class="input-style" required>
+        </div>
+
+        <div>
+          <label class="block text-xs uppercase tracking-widest text-slate-400 font-bold mb-2">Ism va familiya</label>
+          <input id="name" type="text" class="input-style" placeholder="Ismingiz" required>
+        </div>
+
+        <div>
+          <label class="block text-xs uppercase tracking-widest text-slate-400 font-bold mb-2">Telefon / Telegram / WhatsApp</label>
+          <input id="phone" type="tel" class="input-style" placeholder="+998 90 123 45 67" required>
+        </div>
+
+        <div>
+          <label class="block text-xs uppercase tracking-widest text-slate-400 font-bold mb-2">Bagaj xizmati</label>
+          <div class="grid grid-cols-2 gap-3">
+            <button type="button" id="bagYesBtn" class="toggle-btn active rounded-2xl py-4 font-bold uppercase text-xs">Bagajli</button>
+            <button type="button" id="bagNoBtn" class="toggle-btn rounded-2xl py-4 font-bold uppercase text-xs">Bez bagaj</button>
+          </div>
+          <input type="hidden" id="baggage" value="Bagajli">
+        </div>
+
+        <div>
+          <label class="block text-xs uppercase tracking-widest text-slate-400 font-bold mb-2">To‘lov valyutasi</label>
+          <div class="grid grid-cols-2 gap-3">
+            <button type="button" id="rubBtn" class="toggle-btn active rounded-2xl py-4 font-bold uppercase text-xs">RUB</button>
+            <button type="button" id="uzsBtn" class="toggle-btn rounded-2xl py-4 font-bold uppercase text-xs">UZS</button>
+          </div>
+          <input type="hidden" id="currency" value="RUB">
+        </div>
+
+        <div>
+          <label class="block text-xs uppercase tracking-widest text-slate-400 font-bold mb-2">Qo‘shimcha izoh</label>
+          <textarea id="notes" class="input-style min-h-[115px]" placeholder="Masalan: 2 kishi, bola bor, oynali joy kerak"></textarea>
+        </div>
+
+        <div class="md:col-span-2 flex flex-col md:flex-row gap-4 mt-2">
+          <button id="submitBtn" type="submit" class="btn-primary flex-1 py-5 rounded-2xl font-bold uppercase tracking-widest text-sm">
+            So‘rov yuborish
+          </button>
+
+          <a href="https://wa.me/message/WVR2OAIUIT7CG1" target="_blank" class="btn-secondary flex-1 py-5 rounded-2xl font-bold uppercase tracking-widest text-sm text-center">
+            WhatsApp orqali yozish
+          </a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- BONUS -->
+  <section id="bonus" class="px-4 py-10">
+    <div class="max-w-6xl mx-auto glass rounded-[32px] p-6 md:p-10">
+      <div class="text-center mb-8">
+        <h2 class="section-title mb-3">Cosmos Bonus</h2>
+        <p class="text-slate-300">Bizdan bilet oling va keyingi xaridingiz uchun bonus oling.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="feature-card glass rounded-2xl p-6">
+          <i class="fas fa-gift text-red-400 text-2xl mb-3"></i>
+          <h3 class="font-bold text-xl mb-2">Har biletga 200 ₽</h3>
+          <p class="text-slate-300 text-sm">Har bir xarid uchun keyingi buyurtmaga 200 rubl bonus.</p>
+        </div>
+
+        <div class="feature-card glass rounded-2xl p-6">
+          <i class="fas fa-repeat text-blue-400 text-2xl mb-3"></i>
+          <h3 class="font-bold text-xl mb-2">Qayta xaridga foydali</h3>
+          <p class="text-slate-300 text-sm">Bonus keyingi bilet sotib olish vaqtida ishlatiladi.</p>
+        </div>
+
+        <div class="feature-card glass rounded-2xl p-6">
+          <i class="fas fa-star text-yellow-400 text-2xl mb-3"></i>
+          <h3 class="font-bold text-xl mb-2">Oddiy va tushunarli</h3>
+          <p class="text-slate-300 text-sm">Foizsiz, murakkab tizimsiz, aniq 200 ₽ bonus.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AIRPORT BOARD -->
+  <section id="boardSection" class="px-4 py-14">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-8">
+        <h2 class="section-title mb-3">Foydali ma’lumotlar</h2>
+        <p class="text-slate-300">Registratsiya, bagaj va aeroportga borish vaqti bo‘yicha eslatmalar.</p>
+      </div>
+
+      <div class="board rounded-[32px] overflow-hidden">
+        <div class="board-row font-bold uppercase text-xs tracking-widest text-slate-300 bg-white/5">
+          <span>Bo‘lim</span>
+          <span>Ma’lumot</span>
+          <span>Holat</span>
+          <span>Eslatma</span>
+        </div>
+
+        <div class="board-row">
+          <span>Registratsiya</span>
+          <span>Ko‘pincha uchishdan 3 soat oldin boshlanadi</span>
+          <span class="text-green-400 font-bold">Open</span>
+          <span>40–60 minut oldin yopilishi mumkin</span>
+        </div>
+
+        <div class="board-row">
+          <span>Aeroportga kelish</span>
+          <span>Xalqaro reysga 2.5–3 soat oldin boring</span>
+          <span class="text-blue-400 font-bold">Info</span>
+          <span>Navbat bo‘lishi mumkin</span>
+        </div>
+
+        <div class="board-row">
+          <span>Qo‘l yuki</span>
+          <span>Ko‘pincha 5–10 kg atrofida</span>
+          <span class="text-blue-400 font-bold">Check</span>
+          <span>Aviakompaniya bo‘yicha farq qiladi</span>
+        </div>
+
+        <div class="board-row">
+          <span>Bagaj</span>
+          <span>Ko‘pincha 20–23 kg atrofida</span>
+          <span class="text-yellow-400 font-bold">Verify</span>
+          <span>Bilet turiga qarab tekshiriladi</span>
+        </div>
+
+        <div class="board-row">
+          <span>Hujjatlar</span>
+          <span>Pasport va kerakli ma’lumotlarni oldindan tayyorlang</span>
+          <span class="text-blue-400 font-bold">Ready</span>
+          <span>Terminalni tekshirib oling</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROUTES -->
+  <section class="px-4 py-10">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-8">
+        <h2 class="section-title mb-3">Mashhur yo‘nalishlar</h2>
+        <p class="text-slate-300">Ko‘p so‘raladigan yo‘nalishlar ro‘yxati.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="route-card glass rounded-2xl p-6">
+          <h3 class="font-bold text-2xl mb-2">Moskva → Toshkent</h3>
+          <p class="text-slate-300 mb-3">Eng ko‘p so‘raladigan yo‘nalishlardan biri.</p>
+        </div>
+
+        <div class="route-card glass rounded-2xl p-6">
+          <h3 class="font-bold text-2xl mb-2">Piter → Samarqand</h3>
+          <p class="text-slate-300 mb-3">Qulay ulanish va variantlar bo‘lishi mumkin.</p>
+        </div>
+
+        <div class="route-card glass rounded-2xl p-6">
+          <h3 class="font-bold text-2xl mb-2">Moskva → Farg‘ona</h3>
+          <p class="text-slate-300 mb-3">Bagajli va bagsiz tariflar farq qiladi.</p>
+        </div>
+
+        <div class="route-card glass rounded-2xl p-6">
+          <h3 class="font-bold text-2xl mb-2">Piter → Namangan</h3>
+          <p class="text-slate-300 mb-3">Mavsumga qarab narx tez o‘zgaradi.</p>
+        </div>
+
+        <div class="route-card glass rounded-2xl p-6">
+          <h3 class="font-bold text-2xl mb-2">Moskva → Termiz</h3>
+          <p class="text-slate-300 mb-3">Tezkor qidiruv va aniq maslahat foydali.</p>
+        </div>
+
+        <div class="route-card glass rounded-2xl p-6">
+          <h3 class="font-bold text-2xl mb-2">Rossiya → Urganch</h3>
+          <p class="text-slate-300 mb-3">Shahar va sanaga qarab tariflar farq qiladi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="px-4 py-14">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-8">
+        <h2 class="section-title mb-3">Mijozlar izohlari</h2>
+        <p class="text-slate-300">Cosmos Aviakassa Online haqida mijozlarimiz fikri</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+        <div class="review-card glass rounded-2xl p-6">
+          <h3 class="font-bold mb-2">Shavkatjon, Sankt-Peterburg</h3>
+          <p class="text-slate-300">Aviakompaniya tanlashda, o‘zim saytda olgan biletimni qaytarishda va bagaj qo‘shishda yordam berdi. Shu taraflari menga juda yoqadi.</p>
+        </div>
+
+        <div class="review-card glass rounded-2xl p-6">
+          <h3 class="font-bold mb-2">Rustam, Moskva</h3>
+          <p class="text-slate-300">Yaqinlarim boshqa joydan va turli saytlardan bilet olib kuyib qolishgan. <span class="brand-cosmos">COSMOS</span> <span class="brand-aviakassa">AVIAKASSA</span> <span class="brand-online">ONLINE</span> esa biz uchun eng ishonchli aviakassa bo‘lib qolgan.</p>
+        </div>
+
+        <div class="review-card glass rounded-2xl p-6">
+          <h3 class="font-bold mb-2">Jamshid, Piter</h3>
+          <p class="text-slate-300">Bir yilda odatda 2 ta bilet olaman. O‘zim saytdan olib muammo ko‘paytirgandan ko‘ra, <span class="brand-cosmos">COSMOS</span> <span class="brand-aviakassa">AVIAKASSA</span> <span class="brand-online">ONLINE</span>ga ishonaman. Vaqtimni ham, eng asosiysi nervimni ham asraydi.</p>
+        </div>
+
+        <div class="review-card glass rounded-2xl p-6">
+          <h3 class="font-bold mb-2">No‘mon, Andijon</h3>
+          <p class="text-slate-300">Oldin mustaqil olaman deb adashib, noto‘g‘ri tarif tanlab qo‘yganman. Hozir esa avvaldan <span class="brand-cosmos">COSMOS</span> <span class="brand-aviakassa">AVIAKASSA</span> <span class="brand-online">ONLINE</span> orqali olib, xotirjam yuraman.</p>
+        </div>
+
+        <div class="review-card glass rounded-2xl p-6">
+          <h3 class="font-bold mb-2">Maqsad, Sochi</h3>
+          <p class="text-slate-300">Bilet olgandan keyin ham yordam berishi juda katta plus. Almashtirish, qaytarish yoki bagaj masalasida yolg‘iz qoldirmaydi.</p>
+        </div>
+
+        <div class="review-card glass rounded-2xl p-6">
+          <h3 class="font-bold mb-2">Zaynab, Samarqand</h3>
+          <p class="text-slate-300">Farzandlarim bilan uchishda qaysi variant qulayligini tushuntirib berishdi. O‘zim qidirganimda bunaqa aniq ma’lumot topolmagan bo‘lardim.</p>
+        </div>
+
+        <div class="review-card glass rounded-2xl p-6">
+          <h3 class="font-bold mb-2">Ulug‘bek, Moskva</h3>
+          <p class="text-slate-300">Telegram va WhatsApp orqali tez javob beradi. Narxni topib beribgina qolmay, registratsiya va bagaj haqida ham eslatib turadi.</p>
+        </div>
+
+        <div class="review-card glass rounded-2xl p-6">
+          <h3 class="font-bold mb-2">Aziza, Namangan</h3>
+          <p class="text-slate-300">Internetdan o‘zim bilet olsam doim biror narsadan xavotir bo‘ladi. <span class="brand-cosmos">COSMOS</span> <span class="brand-aviakassa">AVIAKASSA</span> <span class="brand-online">ONLINE</span> orqali olsam ancha ishonchli va yengil bo‘ladi.</p>
+        </div>
+
+        <div class="review-card glass rounded-2xl p-6">
+          <h3 class="font-bold mb-2">Bekzod, Termiz</h3>
+          <p class="text-slate-300">Menga yoqadigan tomoni — faqat sotib qo‘yib ketmaydi. Keyin ham kerakli joyida maslahat beradi, shu uchun doim shu yerga murojaat qilaman.</p>
+        </div>
+
+        <div class="review-card glass rounded-2xl p-6">
+          <h3 class="font-bold mb-2">Sardor, Qarshi</h3>
+          <p class="text-slate-300">Narx sal farq qilsa ham, ishonch va xizmat men uchun muhimroq. Arzon deb boshqa joydan olib keyin muammo orttirgandan ko‘ra, shu yer ancha ma’qul.</p>
+        </div>
+
+        <div class="review-card glass rounded-2xl p-6">
+          <h3 class="font-bold mb-2">Dilshod, Farg‘ona</h3>
+          <p class="text-slate-300">Bir necha marta bagaj qo‘shish va sanani aniqlashtirishga to‘g‘ri kelgan. Shu paytlarda <span class="brand-cosmos">COSMOS</span> <span class="brand-aviakassa">AVIAKASSA</span> <span class="brand-online">ONLINE</span> juda katta yordam berdi.</p>
+        </div>
+
+        <div class="review-card glass rounded-2xl p-6">
+          <h3 class="font-bold mb-2">Umida, Toshkent</h3>
+          <p class="text-slate-300">Mening yaqinlarim ham shu aviakassa orqali oladi. Chunki bu yerda faqat bilet emas, ishonch, tushuntirish va keyingi yordam ham bor.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section id="founder" class="px-4 py-14">
+    <div class="max-w-6xl mx-auto glass rounded-[32px] p-6 md:p-10">
+      <div class="grid lg:grid-cols-2 gap-8 items-center">
+        <div class="text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-4 text-sm font-bold">
+            <i class="fas fa-user-tie text-blue-400"></i>
+            Cosmos Aviakassa asoschisi
+          </div>
+
+          <h2 class="section-title mb-4">O‘rolbek Egamshukurov</h2>
+          <p class="text-slate-300 leading-relaxed mb-5">
+            Aviakassa sohasida 12 yildan ortiq tajribaga ega. Rossiya va O‘zbekiston yo‘nalishlarida mijozlarga qulay reyslarni topib berish, bagaj bo‘yicha tushuntirish va ishonchli xizmat ko‘rsatish ustida ishlab kelmoqda.
+          </p>
+
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div class="glass rounded-2xl p-4 text-center">
+              <div class="text-2xl font-black text-blue-400">12+</div>
+              <div class="text-sm text-slate-300">Yillik tajriba</div>
+            </div>
+            <div class="glass rounded-2xl p-4 text-center">
+              <div class="text-2xl font-black text-green-400">1000+</div>
+              <div class="text-sm text-slate-300">Mijozlar bilan ish</div>
+            </div>
+            <div class="glass rounded-2xl p-4 text-center">
+              <div class="text-2xl font-black text-yellow-400">24/7</div>
+              <div class="text-sm text-slate-300">Aloqa va yordam</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-center">
+          <img src="founder.jpg" alt="Cosmos Aviakassa asoschisi" class="w-72 h-72 md:w-96 md:h-96 object-cover rounded-[32px] border border-white/10 shadow-2xl">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="px-4 py-14">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-8">
+        <h2 class="section-title mb-3">Ko‘p so‘raladigan savollar</h2>
+      </div>
+
+      <div class="space-y-4">
+        <details class="glass rounded-2xl p-5">
+          <summary class="font-bold cursor-pointer">Registratsiya qachon yopiladi?</summary>
+          <p class="text-slate-300 mt-3">Ko‘p hollarda uchishdan 40–60 minut oldin yopiladi. Aviakompaniyaga qarab farq bo‘lishi mumkin.</p>
+        </details>
+
+        <details class="glass rounded-2xl p-5">
+          <summary class="font-bold cursor-pointer">Aeroportga qachon borish kerak?</summary>
+          <p class="text-slate-300 mt-3">Xalqaro reyslar uchun kamida 2.5–3 soat oldin yetib borish tavsiya qilinadi.</p>
+        </details>
+
+        <details class="glass rounded-2xl p-5">
+          <summary class="font-bold cursor-pointer">Bagajli va bagsiz tarif nimasi bilan farq qiladi?</summary>
+          <p class="text-slate-300 mt-3">Bagajli tarifda ro‘yxatdan o‘tuvchi bagaj qo‘shiladi. Bagsiz tarifda odatda faqat qo‘l yuki bo‘ladi.</p>
+        </details>
+
+        <details class="glass rounded-2xl p-5">
+          <summary class="font-bold cursor-pointer">Telegram kanal va profil farqi nima?</summary>
+          <p class="text-slate-300 mt-3"><strong>cosmosavia</strong> — Telegram kanal linki. <strong>cosmosavia1</strong> — Telegram profil linki.</p>
+        </details>
+
+        <details class="glass rounded-2xl p-5">
+          <summary class="font-bold cursor-pointer">MAX orqali qanday bog‘lanish mumkin?</summary>
+          <p class="text-slate-300 mt-3">Biz bilan MAX orqali ham bog‘lanishingiz mumkin. Saytdagi MAX tugmasini bossangiz profilingiz ochiladi.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="px-4 pt-8 pb-24">
+    <div class="max-w-6xl mx-auto glass rounded-[32px] p-6 md:p-10 text-center">
+      <img src="logo.png" alt="Cosmos Aviakassa Logo" class="w-32 md:w-40 mx-auto mb-6">
+
+      <h3 class="text-2xl md:text-3xl font-black mb-3">
+        <span class="brand-cosmos">COSMOS</span>
+        <span class="brand-aviakassa">AVIAKASSA</span>
+        <span class="brand-online">ONLINE</span>
+      </h3>
+
+      <p class="text-slate-300 max-w-2xl mx-auto mb-6">
+        12 yillik ishonchli xizmat. Rossiya va O‘zbekiston yo‘nalishlarida qulay aviachiptalar va foydali maslahatlar.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-4 mb-6">
+        <a href="https://wa.me/message/WVR2OAIUIT7CG1" target="_blank" class="btn-primary px-5 py-3 rounded-2xl font-bold uppercase tracking-wider text-xs">
+          WhatsApp
+        </a>
+        <a href="https://t.me/cosmosavia" target="_blank" class="btn-secondary px-5 py-3 rounded-2xl font-bold uppercase tracking-wider text-xs">
+          Telegram kanal
+        </a>
+        <a href="https://t.me/cosmosavia1" target="_blank" class="btn-secondary px-5 py-3 rounded-2xl font-bold uppercase tracking-wider text-xs">
+          Telegram profil
+        </a>
+        <a href="https://www.instagram.com/cosmosavia?igsh=MW9mbmFhdzV1NncyeQ==" target="_blank" class="btn-secondary px-5 py-3 rounded-2xl font-bold uppercase tracking-wider text-xs">
+          Instagram
+        </a>
+        <a href="https://youtube.com/@cosmosavia?si=X178IS5Q1ss4oxSJ" target="_blank" class="btn-secondary px-5 py-3 rounded-2xl font-bold uppercase tracking-wider text-xs">
+          YouTube
+        </a>
+        <a href="https://max.ru/u/f9LHodD0cOLiIcIohtRxuJeJtghmU-GRCxPjGdeLYqnTvk_LLnDciMS62TM" target="_blank" class="btn-secondary px-5 py-3 rounded-2xl font-bold uppercase tracking-wider text-xs">
+          MAX
+        </a>
+      </div>
+
+      <p class="text-slate-500 text-sm">© 2014–2026 COSMOS AVIAKASSA ONLINE. Barcha huquqlar himoyalangan.</p>
+    </div>
+  </footer>
+
+  <script>
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.innerText = message;
+      toast.style.display = 'block';
+      setTimeout(() => {
+        toast.style.display = 'none';
+      }, 3000);
+    }
+
+    function setTodayDate() {
+      const now = new Date();
+      const localDate = new Date(now.getTime() - now.getTimezoneOffset() * 60000)
+        .toISOString()
+        .split('T')[0];
+
+      const dateInput = document.getElementById('date');
+      dateInput.min = localDate;
+      dateInput.value = localDate;
+    }
+    setTodayDate();
+
+    const bagYesBtn = document.getElementById('bagYesBtn');
+    const bagNoBtn = document.getElementById('bagNoBtn');
+    const rubBtn = document.getElementById('rubBtn');
+    const uzsBtn = document.getElementById('uzsBtn');
+
+    bagYesBtn.addEventListener('click', function () {
+      document.getElementById('baggage').value = 'Bagajli';
+      bagYesBtn.classList.add('active');
+      bagNoBtn.classList.remove('active');
+    });
+
+    bagNoBtn.addEventListener('click', function () {
+      document.getElementById('baggage').value = 'Bez bagaj';
+      bagNoBtn.classList.add('active');
+      bagYesBtn.classList.remove('active');
+    });
+
+    rubBtn.addEventListener('click', function () {
+      document.getElementById('currency').value = 'RUB';
+      rubBtn.classList.add('active');
+      uzsBtn.classList.remove('active');
+    });
+
+    uzsBtn.addEventListener('click', function () {
+      document.getElementById('currency').value = 'UZS';
+      uzsBtn.classList.add('active');
+      rubBtn.classList.remove('active');
+    });
+
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby_1_JV9Y3AysJlhhrJWXpCIphkBDQeTt4gixi4j1OOeVuK1GdRgOogF66fD1KnYl2tsQ/exec';
+
+    document.getElementById('leadForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const submitBtn = document.getElementById('submitBtn');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Yuborilmoqda...';
+      submitBtn.disabled = true;
+
+      const payload = {
+        from: document.getElementById('from').value.trim(),
+        to: document.getElementById('to').value.trim(),
+        date: document.getElementById('date').value,
+        name: document.getElementById('name').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        baggage: document.getElementById('baggage').value,
+        currency: document.getElementById('currency').value,
+        notes: document.getElementById('notes').value.trim() || "Izoh yo'q"
+      };
+
+      try {
+        const response = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        const resultText = await response.text();
+
+        if (response.ok) {
+          showToast("So‘rov muvaffaqiyatli yuborildi.");
+
+          if (window.gtag) {
+            gtag('event', 'generate_lead', {
+              event_category: 'lead',
+              event_label: 'website_form'
+            });
+          }
+
+          document.getElementById('leadForm').reset();
+          setTodayDate();
+
+          document.getElementById('baggage').value = 'Bagajli';
+          bagYesBtn.classList.add('active');
+          bagNoBtn.classList.remove('active');
+
+          document.getElementById('currency').value = 'RUB';
+          rubBtn.classList.add('active');
+          uzsBtn.classList.remove('active');
+
+          console.log('Apps Script response:', resultText);
+        } else {
+          showToast("Xatolik yuz berdi. Qayta urinib ko‘ring.");
+          console.error('Apps Script error:', resultText);
+        }
+      } catch (error) {
+        showToast("Ulanishda xatolik. Internet yoki backendni tekshiring.");
+        console.error(error);
+      } finally {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
